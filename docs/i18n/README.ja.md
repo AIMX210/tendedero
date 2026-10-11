@@ -17,6 +17,10 @@
   <sub>このページは英語版READMEの翻訳です。内容に相違がある場合は英語版が優先されます。</sub>
 </p>
 
+<p align="center">
+  <a href="https://trendshift.io/repositories/287033?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-287033" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/287033/daily?language=Swift" alt="alejandrobujan%2Ftendedero | Trendshift" width="250" height="55"/></a>
+</p>
+
 <br>
 
 ## 目には入らず、手は届く。

@@ -53,6 +53,18 @@ let translations: [String: [String: String]] = [
         "Let it go.": "Burax getsin.",
         "The cross or the Trash. That\u{2019}s it.": "Çarpaz və ya Zibil qutusu. Vəssalam.",
     ],
+    "gl": [
+        "Screenshots, hung out to dry.": "As túas capturas, tendidas.",
+        "Copied": "Copiado",
+        "Click to copy.": "Clic para copiar.",
+        "Paste it anywhere, instantly.": "Pégaa onde queiras, ao momento.",
+        "Hold to mark up.": "Mantén para anotar.",
+        "Annotate, crop or sign in place.": "Anota, recorta ou asina aí mesmo.",
+        "Drag to share.": "Arrastra para compartir.",
+        "Apps get a copy. Folders keep it.": "As apps reciben unha copia. Os cartafoles, o orixinal.",
+        "Let it go.": "E esquécete.",
+        "The cross or the Trash. That\u{2019}s it.": "A cruz ou a Papeleira. Nada máis.",
+    ],
     "fr": [
         "Screenshots, hung out to dry.": "Vos captures, mises à sécher.",
         "Copied": "Copié",

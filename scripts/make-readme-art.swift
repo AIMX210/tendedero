@@ -29,6 +29,18 @@ let translations: [String: [String: String]] = [
         "Let it go.": "Y olvídate.",
         "The cross or the Trash. That\u{2019}s it.": "La cruz o la Papelera. Nada más.",
     ],
+    "tr": [
+        "Screenshots, hung out to dry.": "Ekran görüntüleri, ipe asılı.",
+        "Copied": "Kopyalandı",
+        "Click to copy.": "Tıkla ve kopyala.",
+        "Paste it anywhere, instantly.": "İstediğin yere anında yapıştır.",
+        "Hold to mark up.": "Basılı tut ve işaretle.",
+        "Annotate, crop or sign in place.": "Yerinde yaz, kırp veya imzala.",
+        "Drag to share.": "Sürükle ve paylaş.",
+        "Apps get a copy. Folders keep it.": "Uygulamalar kopya alır, klasörler saklar.",
+        "Let it go.": "Bırak gitsin.",
+        "The cross or the Trash. That\u{2019}s it.": "Çarpı veya Çöp Kutusu. Hepsi bu.",
+    ],
     "az": [
         "Screenshots, hung out to dry.": "Ekran şəkilləri, ipə sərilib.",
         "Copied": "Kopyalandı",

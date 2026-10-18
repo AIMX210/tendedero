@@ -260,6 +260,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     /// An empty line goes away, unless it was opened on purpose.
     private func itemsChanged() {
+        updateStatusIcon()
         guard line.liveCount == 0, !keepOpen else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
             guard let self, self.line.liveCount == 0, !self.keepOpen else { return }
@@ -626,14 +627,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// The shirt fills in while copied images are hung, so it shows at a
-    /// glance that the clipboard is being watched.
+    /// glance that the clipboard is being watched. It is dimmed while the
+    /// line is empty, so resting in the menu bar and seeing nothing come down
+    /// does not look broken.
     private func updateStatusIcon() {
         let on = ClipboardWatcher.isEnabled
+        let count = line.liveCount
         let description = on ? L("Tendedero, hanging copied images") : "Tendedero"
-        let image = NSImage(systemSymbolName: on ? "tshirt.fill" : "tshirt", accessibilityDescription: description)
+        let state = count == 0 ? L("The line is empty") : String(format: L("%d on the line"), count)
+        let image = NSImage(systemSymbolName: on ? "tshirt.fill" : "tshirt",
+                            accessibilityDescription: "\(description), \(state)")
         image?.isTemplate = true
         statusItem.button?.image = image
-        statusItem.button?.toolTip = description
+        statusItem.button?.appearsDisabled = count == 0
+        statusItem.button?.toolTip = "\(description)\n\(state)"
     }
 
     func menuNeedsUpdate(_ menu: NSMenu) {

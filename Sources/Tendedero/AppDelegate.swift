@@ -408,9 +408,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             pinned = false
             peekUntil = .distantPast
             panel.ignoresMouseEvents = true
-            // Over a full screen app the line goes once it is put away.
-            if openedOnPurpose {
+            // Opened on purpose lasts until the line tucks away, however that
+            // happens: an empty line then goes, as with the shortcut, and over
+            // a full screen app the line goes too.
+            if keepOpen || openedOnPurpose {
+                keepOpen = false
                 openedOnPurpose = false
+                if line.liveCount == 0 { wanted = false }
                 refresh()
             }
         }
@@ -419,11 +423,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     @objc private func toggle() {
         if isRevealed {
             setRevealed(false)
-            if line.liveCount == 0 {
-                keepOpen = false
-                wanted = false
-                refresh()
-            }
         } else {
             keepOpen = true
             wanted = true
@@ -500,8 +499,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             // Resting in the menu bar brings the line down on that screen.
             // Pushing against the top edge is part of it, and it also works
             // when another display sits above and the pointer never stops.
-            if Self.opensFromMenuBar, let screen = screenUnderPointer, inMenuBar, !menuBarSuppressed,
-               !FullScreen.blocksLine(on: screen) {
+            // An empty line stays up there: only the shortcut and the menu
+            // bring it down on purpose.
+            if line.liveCount > 0, Self.opensFromMenuBar, let screen = screenUnderPointer,
+               inMenuBar, !menuBarSuppressed, !FullScreen.blocksLine(on: screen) {
                 let since = hotZoneSince ?? now
                 hotZoneSince = since
                 if now.timeIntervalSince(since) >= Self.revealDelay {
